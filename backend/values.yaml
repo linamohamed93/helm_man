@@ -1,0 +1,20 @@
+replicaCount: 3
+
+image:
+  repository: 101561167685.dkr.ecr.us-east-1.amazonaws.com/tetris-backend
+  tag: "13"
+  pullPolicy: IfNotPresent
+
+service:
+  port: 4000
+
+configMapName: backend-config-helm
+
+affinity:
+  enabled: true
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
